@@ -1,0 +1,75 @@
+name: NovaStore CI/CD Pipeline
+
+on:
+  pull_request:
+    branches: [ main, master ]
+
+  push:
+    branches: [ main, master ]
+
+
+jobs:
+
+
+  validate:
+    name: Calidad, Pruebas y Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Configurar Node.js 22 con caché
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Instalar dependencias
+        run: pnpm install --frozen-lockfile
+
+      - name: Ejecutar Linter (ESLint)
+        run: pnpm run lint
+
+      - name: Ejecutar Pruebas Unitarias
+        run: pnpm run test:ci
+
+      - name: Compilar aplicación para producción
+        run: pnpm run build
+
+      - name: Guardar artefacto de build
+        uses: actions/upload-artifact@v4
+        with:
+          name: novastore-production-build
+          path: dist/product-catalog/browser
+          retention-days: 1
+
+
+  deploy:
+    name:  Despliegue en Amazon S3
+    needs: [validate]
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name:  Descargar artefacto compilado
+        uses: actions/download-artifact@v4
+        with:
+          name: novastore-production-build
+          path: dist/product-catalog/browser
+
+      - name:  Configurar credenciales de AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Sincronizar archivos a S3
+        run: |
+          aws s3 sync dist/product-catalog/browser s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete
