@@ -1,11 +1,10 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { CatalogComponent } from './features/catalog/catalog.component';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [CatalogComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {
-  protected readonly title = signal('product-catalog');
-}
+export class App {}

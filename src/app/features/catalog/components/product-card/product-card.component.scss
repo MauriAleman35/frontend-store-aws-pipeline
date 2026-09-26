@@ -1,0 +1,146 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-card, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+    border-color: #cbd5e1;
+  }
+
+  &--out-of-stock {
+    .product-card__media {
+      filter: grayscale(0.2);
+    }
+  }
+
+  &__media {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-color, #f1f5f9);
+  }
+
+  &__icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 8px 16px rgba(15, 23, 42, 0.06);
+    transition: transform 0.3s ease;
+
+    &[data-category="Tecnología"] {
+      color: #2563eb;
+    }
+
+    &[data-category="Hogar"] {
+      color: #0d9488;
+    }
+
+    &[data-category="Accesorios"] {
+      color: #7c3aed;
+    }
+  }
+
+  &:hover &__icon-container {
+    transform: scale(1.08);
+  }
+
+  &__svg {
+    width: 42px;
+    height: 42px;
+  }
+
+  &__badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    letter-spacing: 0.025em;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+
+    &.badge--in-stock {
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #a7f3d0;
+    }
+
+    &.badge--out-of-stock {
+      background: #f1f5f9;
+      color: #64748b;
+      border: 1px solid #cbd5e1;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.25rem;
+  }
+
+  &__meta {
+    margin-bottom: 0.5rem;
+  }
+
+  &__category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted, #64748b);
+    background: #f1f5f9;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+  }
+
+  &__title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-heading, #0f172a);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+  }
+
+  &__description {
+    font-size: 0.875rem;
+    color: var(--text-muted, #64748b);
+    line-height: 1.5;
+    margin: 0 0 1.25rem 0;
+    flex: 1;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-color, #f1f5f9);
+  }
+
+  &__price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-heading, #0f172a);
+    letter-spacing: -0.01em;
+  }
+}

@@ -1,0 +1,42 @@
+<div class="summary-cards" role="region" aria-label="Resumen de inventario">
+  <div class="summary-card summary-card--total" data-testid="summary-total">
+    <div class="summary-card__icon-wrapper">
+      <svg class="summary-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect width="7" height="7" x="3" y="3" rx="1" />
+        <rect width="7" height="7" x="14" y="3" rx="1" />
+        <rect width="7" height="7" x="14" y="14" rx="1" />
+        <rect width="7" height="7" x="3" y="14" rx="1" />
+      </svg>
+    </div>
+    <div class="summary-card__content">
+      <span class="summary-card__label">Total Productos</span>
+      <span class="summary-card__value" data-testid="summary-total-value">{{ summary().total }}</span>
+    </div>
+  </div>
+
+  <div class="summary-card summary-card--available" data-testid="summary-available">
+    <div class="summary-card__icon-wrapper">
+      <svg class="summary-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+        <polyline points="22 4 12 14.01 9 11.01" />
+      </svg>
+    </div>
+    <div class="summary-card__content">
+      <span class="summary-card__label">Disponibles</span>
+      <span class="summary-card__value" data-testid="summary-available-value">{{ summary().available }}</span>
+    </div>
+  </div>
+
+  <div class="summary-card summary-card--out-of-stock" data-testid="summary-out-of-stock">
+    <div class="summary-card__icon-wrapper">
+      <svg class="summary-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" />
+        <line x1="4.93" x2="19.07" y1="4.93" y2="19.07" />
+      </svg>
+    </div>
+    <div class="summary-card__content">
+      <span class="summary-card__label">Agotados</span>
+      <span class="summary-card__value" data-testid="summary-out-of-stock-value">{{ summary().outOfStock }}</span>
+    </div>
+  </div>
+</div>
