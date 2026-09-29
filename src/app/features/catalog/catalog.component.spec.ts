@@ -38,6 +38,6 @@ describe('CatalogComponent', () => {
 
     const productCards = compiled.querySelectorAll('[data-testid="product-card"]');
     expect(productCards.length).toBe(expectedProducts.length);
-    expect(productCards.length).toBe(6);
+    expect(productCards.length).toBe(7);
   });
 });
