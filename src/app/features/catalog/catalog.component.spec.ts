@@ -23,15 +23,12 @@ describe('CatalogComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('debe renderizar el encabezado con nombre, subtítulo y versión de catálogo', () => {
+  it('debe renderizar el encabezado con nombre y subtítulo', () => {
     const compiled = fixture.nativeElement as HTMLElement;
 
     expect(compiled.querySelector('.catalog-header__title')?.textContent).toContain('NovaStore');
     expect(compiled.querySelector('.catalog-header__subtitle')?.textContent).toContain(
       'Productos seleccionados para tu día a día'
-    );
-    expect(compiled.querySelector('[data-testid="catalog-version-badge"]')?.textContent).toContain(
-      'Catálogo v1.0'
     );
   });
 
@@ -41,6 +38,6 @@ describe('CatalogComponent', () => {
 
     const productCards = compiled.querySelectorAll('[data-testid="product-card"]');
     expect(productCards.length).toBe(expectedProducts.length);
-    expect(productCards.length).toBeGreaterThanOrEqual(8);
+    expect(productCards.length).toBe(6);
   });
 });

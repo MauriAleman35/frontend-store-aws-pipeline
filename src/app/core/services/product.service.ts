@@ -55,33 +55,6 @@ const INITIAL_PRODUCTS: Product[] = [
     price: 95.0,
     inStock: true,
     iconName: 'bottle'
-  },
-  {
-    id: 'prod-07',
-    name: 'Organizador de escritorio modular',
-    description: 'Bandejas magnéticas configurables en acabado bambú y metal anodizado.',
-    category: 'Hogar',
-    price: 85.0,
-    inStock: false,
-    iconName: 'desk-organizer'
-  },
-  {
-    id: 'prod-08',
-    name: 'Mochila urbana impermeable',
-    description: 'Compartimento acolchado para laptop de 15.6 pulgadas y bolsillos antirrobo.',
-    category: 'Accesorios',
-    price: 290.0,
-    inStock: true,
-    iconName: 'backpack'
-  },
-  {
-    id: 'prod-09',
-    name: 'Estuche organizador de cables y accesorios',
-    description: 'Interior elástico acolchado resistente a salpicaduras para periféricos.',
-    category: 'Accesorios',
-    price: 75.0,
-    inStock: false,
-    iconName: 'cable-pouch'
   }
 ];
 
