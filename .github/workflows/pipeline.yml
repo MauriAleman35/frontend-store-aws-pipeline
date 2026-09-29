@@ -10,7 +10,7 @@ on:
 
 jobs:
 
-
+  # ci:integracion continua
   validate:
     name: Calidad, Pruebas y Build
     runs-on: ubuntu-latest
@@ -49,7 +49,7 @@ jobs:
           path: dist/product-catalog/browser
           retention-days: 1
 
-
+  #cd: despliegue continuo
   deploy:
     name:  Despliegue en Amazon S3
     needs: [validate]

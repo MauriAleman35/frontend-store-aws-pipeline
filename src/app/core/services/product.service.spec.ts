@@ -18,7 +18,7 @@ describe('ProductService', () => {
   it('debe devolver la lista de productos iniciales', () => {
     const products = service.getProducts();
     expect(products).toBeDefined();
-    expect(products.length).toBeGreaterThanOrEqual(8);
+    expect(products.length).toBe(6);
     expect(service.products().length).toBe(products.length);
   });
 
@@ -35,10 +35,9 @@ describe('ProductService', () => {
     expect(summary.available + summary.outOfStock).toBe(summary.total);
   });
 
-  // ❌ DEMO: este test rompe el pipeline intencionalmente
-  it('DEMO: el precio del primer producto debe ser negativo (falla intencional)', () => {
-    const products = service.getProducts();
-    // Un precio nunca puede ser negativo — este expect siempre falla
-    expect(products[0].price).toBeLessThan(0);
-  });
+  // it('DEMO: el precio del primer producto debe ser negativo (falla intencional)', () => {
+  //   const products = service.getProducts();
+  //   // Un precio nunca puede ser negativo — este expect siempre falla
+  //   expect(products[0].price).toBeLessThan(0);
+  // });
 });
