@@ -21,7 +21,7 @@ export class CatalogComponent {
   readonly filterCategory = signal<ProductCategory | 'Todos'>('Todos');
   readonly filterStock = signal<'todos' | 'disponibles' | 'agotados'>('todos');
 
-  readonly categories: Array<ProductCategory | 'Todos'> = ['Todos', 'Tecnología', 'Hogar', 'Accesorios'];
+  readonly categories: (ProductCategory | 'Todos')[] = ['Todos', 'Tecnología', 'Hogar', 'Accesorios'];
 
   // Productos filtrados reactivamente
   readonly products = computed(() => {
