@@ -38,6 +38,7 @@ const INITIAL_PRODUCTS: Product[] = [
     inStock: true,
     iconName: 'laptop-stand'
   },
+  // Hogar
   {
     id: 'prod-05',
     name: 'Lámpara de escritorio LED con atenuador',
@@ -55,6 +56,15 @@ const INITIAL_PRODUCTS: Product[] = [
     price: 95.0,
     inStock: true,
     iconName: 'bottle'
+  },
+  {
+    id: 'prod-07',
+    name: 'Organizador de escritorio modular',
+    description: 'Bandejas magnéticas configurables en acabado bambú y metal anodizado.',
+    category: 'Hogar',
+    price: 85.0,
+    inStock: false,
+    iconName: 'desk-organizer'
   }
 ];
 
