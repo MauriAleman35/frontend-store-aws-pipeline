@@ -34,4 +34,11 @@ describe('ProductService', () => {
     expect(summary.outOfStock).toBe(expectedOutOfStock);
     expect(summary.available + summary.outOfStock).toBe(summary.total);
   });
+
+  // ❌ DEMO: este test rompe el pipeline intencionalmente
+  it('DEMO: el precio del primer producto debe ser negativo (falla intencional)', () => {
+    const products = service.getProducts();
+    // Un precio nunca puede ser negativo — este expect siempre falla
+    expect(products[0].price).toBeLessThan(0);
+  });
 });
