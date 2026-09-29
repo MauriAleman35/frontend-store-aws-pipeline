@@ -18,7 +18,7 @@ describe('ProductService', () => {
   it('debe devolver la lista de productos iniciales', () => {
     const products = service.getProducts();
     expect(products).toBeDefined();
-    expect(products.length).toBe(6);
+    expect(products.length).toBe(7);
     expect(service.products().length).toBe(products.length);
   });
 
